@@ -39,6 +39,7 @@ public class StartView {
 			System.out.println("_____________________");
 			System.out.println("1) Modificar Cine");
 			System.out.println("2) Lista de Cines");
+			System.out.println("3) Crear Cine");
 			System.out.println("\n");
 			System.out.println("0) SALIR");
 			numero = Integer.parseInt (br.readLine());
@@ -47,6 +48,7 @@ public class StartView {
 			
 				case 1: modificarCine(); break;
 				case 2: listarCines(); break;
+				case 3: crearCine();break;
 			}
 		}
 	}
@@ -95,6 +97,31 @@ public class StartView {
 		// recojo el cine se lo paso a la parte de la view que lo modifica
 		CineBean unCine = cines.getCine(numero);
 		ModificarCineView.modificarCine(unCine);
+}
+		
+		
+	
+	private void crearCine() throws NumberFormatException, IOException {
+		// recorro la lista de cines imprimiendo lo que hay		
+				System.out.println("Estos son los cines actuales");
+				Iterator<CineBean> listado =  cines.getCines();
+				while(listado.hasNext()) {
+					
+					CineBean unCine = listado.next();
+					System.out.println("["+unCine.getIdCine()+"] "+unCine.getNombre());
+				}
+				
+				// solicito un ID
+				System.out.println("Seleccione el Id del nuevo cine, debe ser distinta a las existentes");
+				int resp = Integer.parseInt (br.readLine());
+				
+				// recojo el cine se lo paso a la parte de la view que lo crea
+				if(cines.getCine(resp)==null) {
+					CineBean unCine =new CineBean();
+					resp = Integer.parseInt (br.readLine());
+					unCine.setIdCine(resp);
+					ModificarCineView.crearCine(unCine);
+				}
 		
 	}
 	

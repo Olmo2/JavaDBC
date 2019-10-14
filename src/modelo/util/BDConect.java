@@ -14,7 +14,7 @@ public class BDConect {
 	private BDConect() {
 		
 		String user ="root";
-		String pass = "P@ssword";
+		String pass = "";
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
