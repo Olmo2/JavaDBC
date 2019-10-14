@@ -1,5 +1,31 @@
 package modelo.cines;
 
-public class CinesDelete {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
+import modelo.util.BDConect;
+import negocio.beans.CineBean;
+
+public class CinesDelete {
+	
+	
+	public void deleteCine(CineBean cine) {
+		Connection conexion = BDConect.getConexion(); 
+       	PreparedStatement stmt;
+       	//DELETE FROM `cines`.`cines` WHERE (`idcines` = '11');
+       	
+       	String sql = 	"DELETE FROM `cines`.`cines` WHERE ("
+       					+"`idcines` = " + "'" + cine.getIdCine() + "')";
+       	
+     System.out.println(sql);
+		try {
+			stmt = conexion.prepareStatement(sql);
+	       	stmt.execute();	       	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		
+	}	
 }

@@ -33,6 +33,7 @@ public class StartView {
 			System.out.println("1) Modificar Cine");
 			System.out.println("2) Lista de Cines");
 			System.out.println("3) Crear Cine");
+			System.out.println("4) Borrar Cine");
 			System.out.println("\n");
 			System.out.println("0) SALIR");
 			numero = Integer.parseInt(br.readLine());
@@ -47,6 +48,9 @@ public class StartView {
 				break;
 			case 3:
 				crearCine();
+				break;
+			case 4:
+				borrarCine();
 				break;
 			}
 		}
@@ -105,12 +109,12 @@ public class StartView {
 				int resp = Integer.parseInt (br.readLine());
 				
 				// recojo el cine se lo paso a la parte de la view que lo crea
-				if(cines.getCine(resp)==null) {
+		
 					CineBean unCine =new CineBean();
-					resp = Integer.parseInt (br.readLine());
+					
 					unCine.setIdCine(resp);
 					ModificarCineView.crearCine(unCine);
-				}
+				
 	}
 
 	private void borrarCine() throws NumberFormatException, IOException {

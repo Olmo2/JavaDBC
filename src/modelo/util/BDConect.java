@@ -14,7 +14,7 @@ public class BDConect {
 	private BDConect() {
 		
 		String user ="root";
-		String pass = "";
+		String pass = "2583";
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -22,7 +22,7 @@ public class BDConect {
 				    + "?verifyServerCertificate=true" 
 				    + "&useSSL=false"
 				    + "&requireSSL=false";
-            conexion = DriverManager.getConnection(dbURL, user, pass);
+            conexion = DriverManager.getConnection(dbURL, user,pass);
 		} 
 		catch (Exception ex) {
             ex.printStackTrace();

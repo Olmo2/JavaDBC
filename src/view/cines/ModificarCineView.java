@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import modelo.cines.CinesCreate;
+import modelo.cines.CinesDelete;
 import modelo.cines.CinesUpdate;
 import negocio.beans.CineBean;
 
@@ -107,6 +108,9 @@ public class ModificarCineView {
 		// presentamos los valores anteriores
 		System.out.println("Id del cine");
 		System.out.println(cine.getIdCine());
+		
+		CinesDelete cd=new CinesDelete();
+		cd.deleteCine(cine);
 
 		
 
