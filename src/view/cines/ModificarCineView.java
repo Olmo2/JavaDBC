@@ -102,8 +102,7 @@ public class ModificarCineView {
 	
 	
 	public static void borrarCine(CineBean cine) throws IOException {
-		InputStreamReader isr = new InputStreamReader(System.in);
-		BufferedReader br = new BufferedReader(isr);
+		
 
 		// presentamos los valores anteriores
 		System.out.println("Id del cine");
